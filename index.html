@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript motion detection</title>
+	<link href="css/main.css" rel="stylesheet" />
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />  
+    <!-- <link href="css/sticky-footer.css" rel="stylesheet">   -->
+
+</head>
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Motion Painting</a>
+	    </div>
+	    <div class="collapse navbar-collapse">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+	        <li><a href="#about" data-toggle="tab">About</a></li>
+	      </ul>
+	    </div><!--/.nav-collapse -->
+    </div>
+</div>
+<div class="container">
+	<div class="tab-content">
+		<div class="tab-pane active" id="home">
+			<div class="introduction">
+			<div id="message">
+				<p>This demo plays sounds, please turn the volume up.</p>
+				<p>Reach the xylophone with your hands to play the notes.</p>
+			</div>
+			<div id="info">
+				<p>You are watching a video demo, follow the instructions below to enable your webcam.</p>
+				<p>Please view this page using <a href="http://tools.google.com/dlpage/chromesxs" target="_blank">Google Chrome Canary</a> and enable the "Media Stream" flag in about:flags.</p>
+				<img src="images/mediastream.png"/>
+			</div>
+			</div>
+			<div id="content">
+			<video id="webcam" autoplay width="640" height="480"></video>
+			<video id="video-demo" controls="controls" poster="videos/jsdetection.jpg" width="640" height="480"  onclick="if(/Android/.test(navigator.userAgent))this.play();">
+				<source src="videos/jsdetection.mp4" type="video/mp4" />
+				<source src="videos/jsdetection.ogv" type="video/ogg" />
+				<source src="videos/jsdetection.webm" type="video/webm" />
+				Your browser doesn't support the html 5 video tag.
+			</video>
+			<canvas id="canvas-source" width="640" height="480"></canvas>
+			<canvas id="canvas-blended" width="640" height="480"></canvas>
+			<canvas id="canvas-painting" width="640" height="480"></canvas>	
+
+			<div id="xylo">
+				<div id="back"></div>
+				<div id="note0" class="note"></div>
+				<div id="note1" class="note"></div>
+				<div id="note2" class="note"></div>
+				<div id="note3" class="note"></div>
+				<div id="note4" class="note"></div>
+				<div id="note5" class="note"></div>
+				<div id="note6" class="note"></div>
+				<div id="note7" class="note"></div>
+			</div>
+			</div>
+			<div>
+			</div>
+		</div>
+		<div class="tab-pane" id="about">
+			<h1>About</h1>
+			<p>
+				This is an extension to the 
+				<a href="http://www.soundstep.com/blog/experiments/jsdetection/" target="_blank">			javascript motion detection demo</a>
+				by 
+				<a href="http://www.soundstep.com" target="_blank">
+					Romuald</a>.
+			</p>
+			<p>
+				It uses 
+				<a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/" target="_blank">
+					html 5 getUserMedia API</a>
+				and
+				<a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/" target="_blank">
+					Web Audio API</a>.
+			</p>
+			<p>
+				User's movement detection is done using a technique called 
+				<a href="http://en.wikipedia.org/wiki/Blend_modes#Difference" target="_blank">
+					blend mode difference</a>.
+			</p>
+			<p>
+				Romuald has explained the concept and implementation of the demo in his 
+				<a href="http://www.soundstep.com/blog/2012/03/22/javascript-motion-detection/" target="_blank">
+					blog</a>
+				and a 
+				<a href="http://www.adobe.com/devnet/html5/articles/javascript-motion-detection.html" target="_blank">		
+					more in-depth article on ADC</a>.
+			</p>
+		</div>
+	</div>
+</div>
+<div id="footer">
+  <div class="container">
+      <a href="https://github.com/xming13" target="_blank">xming13@Github</a>
+  </div>
+</div>    
+<script src="js/libs/jquery.js"></script>
+<script src="js/libs/buffer-loader.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

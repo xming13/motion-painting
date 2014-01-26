@@ -30,10 +30,10 @@
 
 	if (hasGetUserMedia()) {
 		$("#info").hide();
-		$("#message").show();
+		$("#description").show();
 	} else {
 		$("#info").show();
-		$("#message").hide();
+		$("#description").hide();
 		$("#video-demo").show();
 		$("#video-demo")[0].play();
 		return;
@@ -103,6 +103,7 @@
 			alert("AudioContext not supported!");
 		}
 		else {
+			$("#message").show();
 			loadSounds();
 		}
 	}
@@ -137,6 +138,7 @@
 			};
 			notes.push(note);
 		}
+		$("#message").hide();
 		start();
 	}
 

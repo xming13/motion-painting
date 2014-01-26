@@ -7,7 +7,7 @@ body {
 	height: 100%;
 }
 
-video, #info {
+video, #info, #message {
 	display: none;
 }
 

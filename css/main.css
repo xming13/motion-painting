@@ -24,6 +24,8 @@ video, #info, #message {
 	overflow: hidden;
 	z-index: 0;
 	width: 100%;
+	min-height: 150px;
+	min-width: 410px;
 }
 
 #webcam {
@@ -39,6 +41,8 @@ video, #info, #message {
 
 #canvas-source, #canvas-painting {
 	width: 49.5%;
+	min-height: 150px;
+	min-width: 200px;
 }
 
 #canvas-blended {

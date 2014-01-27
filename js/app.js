@@ -1,21 +1,20 @@
 (function() {
-	var content = $('#content');
+	var content = $("#content");
 	var video = $('#webcam')[0];
 
 	var resize = function() {
 		var w = $(this).width();
-		var h = $(this).height() - 110;
+		var h = $(this).height() - 105;
 		var ratio = video.width / (video.height / 2);
-		if (content.width() > w) {
-			content.width(w);
-			content.height(w / ratio);
-		}
-		else {
+		content.width(w);
+		content.height(w / ratio);
+
+		if (content.height() > h) {
 			content.height(h);
 			content.width(h * ratio);
 		}
 		content.css('left', (w - content.width()) / 2 );
-		content.css('top', ((h - content.height()) / 2) + 55 );
+		content.css('top', ((h - content.height()) / 2) + 50 );
 	}
 	$(window).resize(resize);
 	$(window).ready(function() {
@@ -103,7 +102,7 @@
 			alert("AudioContext not supported!");
 		}
 		else {
-			$("#message").show();
+			$("#message").fadeIn();
 			loadSounds();
 		}
 	}
@@ -138,7 +137,7 @@
 			};
 			notes.push(note);
 		}
-		$("#message").hide();
+		$("#message").fadeOut();
 		start();
 	}
 
@@ -158,10 +157,12 @@
 	}
 
 	function start() {
+		resize();
 		$(canvasSource).show();
 		$(canvasBlended).show();
 		$(canvasPainting).show();
 		$("#xylo").show();
+		$("#description").hide();
 		$("#message").hide();
 		update();
 	}

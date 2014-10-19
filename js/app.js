@@ -146,7 +146,7 @@
 		var source = soundContext.createBufferSource();
 		source.buffer = obj.note.buffer;
 		source.connect(soundContext.destination);
-		source.noteOn(0);
+		source.start(0);
 		obj.ready = false;
 		// throttle the note
 		setTimeout(setNoteReady, 400, obj);
